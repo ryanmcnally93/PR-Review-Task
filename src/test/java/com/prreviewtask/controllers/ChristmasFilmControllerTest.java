@@ -12,15 +12,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class HealthControllerTest {
+class ChristmasFilmControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void healthReturnsOk() throws Exception {
-        mockMvc.perform(get("/api/health"))
+    void getChristmasFilms_ReturnsFilmsAndOkStatus() throws Exception {
+        mockMvc.perform(get("/api/christmasFilms"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("PRReviewTask is healthy and running!"));
+                .andExpect(content().string("Die Hard (Yes this counts), Elf, The Grinch Who Stole Christmas, Muppet's Christmas Carol, Home Alone, Love Actually"));
     }
 }
